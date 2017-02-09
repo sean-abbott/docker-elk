@@ -21,15 +21,17 @@ services:
 
   logstash:
     build: logstash/
-    command: -f /etc/logstash/conf.d/
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline:/usr/share/logstash/pipeline
     ports:
       - "5000:5000"
-      - "5044:4044"
+<<<<<<< 4be677ef2ebce3e704f7a7cb6c56b284604bf94e
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+=======
+      - "5044:4044"
+>>>>>>> Add beats input, separate outputs for unstructured and beats
     networks:
       - elk
     depends_on:
